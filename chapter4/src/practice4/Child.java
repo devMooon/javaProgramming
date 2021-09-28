@@ -1,15 +1,16 @@
 package practice4;
-
+//컴퓨터공학전공 20200675 문서연
 import java.util.Scanner;
 
 public class Child {
-	String name;
+	private String name;
 	private int numOfMarble;
 	
-	Child (String name){
+	public Child(String name) {
 		this.name = name;
 		int num;
-		while (true) {
+		
+		while(true) {
 			Scanner s = new Scanner(System.in);
 			System.out.print("'" + name + "' 어린이의 구슬 개수를 입력 하세요. : ");
 			num = s.nextInt();
@@ -53,7 +54,7 @@ public class Child {
 		winner.winnerSetNumOfMarble(lostMarble);
 	}
 	
-	void showInfo() {
+	public void showInfo() {
 		System.out.println("'" + name + "' 어린이의 구슬개수 : " + numOfMarble);
 	}
 }
