@@ -1,32 +1,30 @@
 //컴퓨터공학전공 20200675 문서연
-package calculator;
+
 import java.util.Random;
 import java.util.Scanner;
 
-import child.Child;
-
 public class Calculator {
+	Scanner s = new Scanner(System.in);
 	Random r = new Random();
+	
 	private int a;
 	private int b;
 	private char operater;
 	private int answer;
 	
 	public void startQuestions(Child c, int repeat){
-		int correctAnswers = 0;
 		for (int i = 0; i < repeat; i++) {
 			setNumAndOper();
-			correctAnswers += printQuestion(i);
+			c.setNumOfCorrectAnswers(printQuestion(i));
 		}
-		c.setNumOfCorrectAnswers(correctAnswers);
 		c.showInfo(repeat);
 	};
 	
 	
 	void setNumAndOper() {
-		a = r.nextInt(9);
-		b = r.nextInt(9);
-		if (r.nextInt(1) == 0) {
+		a = r.nextInt(10);
+		b = r.nextInt(10);
+		if (r.nextInt(2) == 0) {
 			answer = a + b;
 			operater = '+';
 		} 
@@ -39,7 +37,6 @@ public class Calculator {
 	int printQuestion(int number) {
 		int chance = 3;
 		while(true) {
-			Scanner s = new Scanner(System.in);
 			System.out.println("*" + (number + 1) + "번 문제");
 			System.out.print(a + " " + operater + " " + b + " = ");
 			int user = s.nextInt();
@@ -58,6 +55,7 @@ public class Calculator {
 				}
 				System.out.println("틀렸습니다.. 남은 기회 " + chance + "번!!");
 			}
+
 		}
 	}	
 }

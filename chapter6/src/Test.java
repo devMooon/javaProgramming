@@ -1,6 +1,4 @@
 //컴퓨터공학전공 20200675 문서연
-import calculator.Calculator;
-import child.Child;
 
 public class Test {
 
