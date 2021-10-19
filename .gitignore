@@ -1906,3 +1906,9 @@
 /.metadata/
 chapter4/src/practice2/실습과제2_20200675문서연.zip
 chapter4/src/practice2/실행화면.png
+*.pdf
+*.classpath
+*.gitignore
+*.project
+*.prefs
+*.java
