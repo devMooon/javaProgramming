@@ -1,9 +1,10 @@
 package Exercise;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +14,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class layout extends JFrame {
+	
+	private JLabel label;
 	
 	layout(){
 		super("사원 등록");
@@ -96,10 +99,35 @@ public class layout extends JFrame {
 		return panel;
 	}
 	private JPanel create_border_south_panel() {
+		JButton buttonSave = new JButton("저장");
+		JButton buttonExit = new JButton("종료");
+		
+		label = new JLabel("");
+		
 		JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		panel.add(new JButton("저장"));
-		panel.add(new JButton("종료"));
+		panel.add(buttonSave);
+		panel.add(buttonExit);
+		panel.add(label);
+		
+		buttonSave.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				label.setText("저장 완료");
+			}
+			
+		});
+		
+		buttonExit.addActionListener(listener);
 		
 		return panel;
 	}
+	ActionListener listener = new ActionListener() {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			System.exit(ABORT);			
+		}
+		
+	};
 }
