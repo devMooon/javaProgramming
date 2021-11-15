@@ -1904,11 +1904,16 @@
 명품 JAVA 프로그래밍(개정3판)_학습자용\[17_08_24\]/예제 및 그림 소스/9장/chap09-fig9-15/bin/GridLayoutSample.class
 명품 JAVA 프로그래밍(개정3판)_학습자용\[17_08_24\]/예제 및 그림 소스/9장/chap09-fig9-15/src/GridLayoutSample.java
 /.metadata/
-chapter4/src/practice2/실습과제2_20200675문서연.zip
 chapter4/src/practice2/실행화면.png
 *.pdf
 *.classpath
 *.gitignore
 *.project
 *.prefs
-*.java
+*.zip
+mid_exam/m20200675.zip
+mid_exam/m20200675/src/Duli_ne.java
+mid_exam/m20200675/src/GosFamily.java
+mid_exam/m20200675/src/mid/family/Family.java
+mid_exam/m20200675/src/mid/family/Household.java
+mid_exam/m20200675/src/mid/family/Person.java
