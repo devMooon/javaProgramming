@@ -8,7 +8,7 @@ public class ExceptionEx2_withEH2 {
 	public static void main(String[] args) {
 		
 		int n1 = 10;
-		int n2 = 2;
+		int n2 = 0;
 		
 		try {
 			int result = divide(n1, n2);
