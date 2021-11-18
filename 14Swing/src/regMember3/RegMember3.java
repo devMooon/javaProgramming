@@ -7,9 +7,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.Vector;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -18,7 +20,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class RegMember3 extends JFrame {
-	
 	
 	private JTextField nameText;
 	private JRadioButton genderRadioButton1;
@@ -34,6 +35,8 @@ public class RegMember3 extends JFrame {
 	private JLabel introduceLabel;
 	private JTextArea introduceTextArea;
 	
+	
+	private Vector<Department> mData = new Vector<Department>();
 	
 	public RegMember3(){
 		super("사원 등록");
@@ -138,18 +141,49 @@ public class RegMember3 extends JFrame {
 		return p;
 	}
 	private JPanel createDepartment() {
+		
+		readData();
+		JComboBox<Department> combobox = new JComboBox<Department>(mData);
+		combobox.setMaximumRowCount(3);
+		combobox.addItemListener(choiceEventLisner);
+				
 		JPanel p = new JPanel(new FlowLayout(FlowLayout.LEFT));
 	
 		JLabel label = new JLabel("부      서      명");
-		departmentText = new JTextField(8);
 		
-		addDepartmentTextLitener();
+		//departmentText = new JTextField(8);
+		
+		//addDepartmentTextLitener();
 		
 		p.add(label);
-		p.add(departmentText);
+		p.add(combobox);
+		//p.add(departmentText);
 		
 		return p;
 	}
+	private void readData() {
+		mData.add(new Department("영업부", "010-0000-0001", 1));
+		mData.add(new Department("기획부", "010-0000-0002", 2));
+		mData.add(new Department("설계부"));
+		mData.add(new Department("관리부", "010-0000-0004", 4));
+	}
+	private ItemListener choiceEventLisner = new ItemListener() {
+
+		@Override
+		public void itemStateChanged(ItemEvent e) {
+			//((Department)e.getItem()).show();
+			
+			StringBuffer stringbuffer = new StringBuffer();
+			stringbuffer.append((Department)e.getItem());
+			
+			if(e.getStateChange() == ItemEvent.SELECTED) stringbuffer.append(" 부서가 선택되었습니다.\n");
+			else  stringbuffer.append(" 부서가 선택 해제되었습니다.\n");
+			
+			String string = stringbuffer.toString();
+			introduceTextArea.append(string);
+		}
+		
+	};
 	private JPanel createHobby() {
 		JPanel p = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		
@@ -286,7 +320,7 @@ public class RegMember3 extends JFrame {
 			
 		});
 	}
-	private void addDepartmentTextLitener() {
+	/*private void addDepartmentTextLitener() {
 		departmentText.addActionListener(new ActionListener() {
 
 			@Override
@@ -303,7 +337,7 @@ public class RegMember3 extends JFrame {
 			}
 			
 		});
-	}
+	}*/
 	private ItemListener handler = new ItemListener() {
 
 		@Override
