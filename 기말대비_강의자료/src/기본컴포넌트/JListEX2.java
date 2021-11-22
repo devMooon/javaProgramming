@@ -39,7 +39,7 @@ public class JListEX2 {
 		mData.add("orange");
 		
 		mList = new JList<String>(mData);
-		//mList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); 	//¹¹Áö?
+		mList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); 	//¹¹Áö?
 		
 		frame.add(createInputPanel(), BorderLayout.NORTH);
 		frame.add(new JScrollPane(mList), BorderLayout.CENTER);
