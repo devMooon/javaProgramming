@@ -34,11 +34,23 @@ public class BasicDrawingEX3 {
 			// TODO Auto-generated method stub
 			super.paint(g);
 			
-			g.drawRect(x, y, width, height);
+			g.setColor(new Color(255, 0, 0, 128));
+			
+			g.fillRect(x, y + 5, width, height);
+			g.fillRect(x - distance, y + height, width + distance*2, height);
+			
+			g.setColor(Color.BLACK);
+			
+			g.fillOval(x - distance/2, y + height*2, distance, distance);
+			g.fillOval(x - distance/2 + width, y + height*2, distance, distance);
+			g.drawLine(x - distance*2, y + height*3, x + width + distance*2, y + height*3);
+			
+			/*g.drawRect(x, y, width, height);
 			g.drawRect(x - distance, y + height, width + distance*2, height);
 			g.drawOval(x - distance/2, y + height*2, distance, distance);
 			g.drawOval(x - distance/2 + width, y + height*2, distance, distance);
-			g.drawLine(x - distance*2, y + height*3, x + width + distance*2, y + height*3);
+			g.drawLine(x - distance*2, y + height*3, x + width + distance*2, y + height*3);*/		
+			
 		}
 		
 	}
