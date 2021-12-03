@@ -21,12 +21,12 @@ public class Bank {
 		}
 		
 		try {
-			System.out.println("\n\n입금 테스트");
+			System.out.println("\n입금 테스트");
 			//account.get(0).deposit(-1);
 			account.get(0).deposit(5000);
 			account.get(0).check();
 			
-			System.out.println("\n\n출금 테스트");
+			System.out.println("\n출금 테스트");
 			//account.get(0).withdraw(50000);
 			//account.get(0).withdraw(-1000);
 			account.get(0).withdraw(1000);
@@ -40,7 +40,7 @@ public class Bank {
 		finally {
 			itr = account.iterator();
 			
-			System.out.println("\n\n최종 결과입니다.");
+			System.out.println("\n최종 결과입니다.");
 			while(itr.hasNext()) {
 				itr.next().check();
 			}

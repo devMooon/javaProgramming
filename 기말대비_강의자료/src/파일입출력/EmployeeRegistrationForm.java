@@ -215,6 +215,7 @@ public class EmployeeRegistrationForm extends JFrame {
 					try {
 						if(bw != null) bw.close();
 						if(fw != null) fw.close();
+						
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();

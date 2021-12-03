@@ -75,7 +75,7 @@ public class DrawingHW extends JFrame {
 
 		@Override
 		public void paint(Graphics g) {
-			super.paint(g);
+			//super.paint(g);
 			g.setColor(Color.ORANGE);
 			
 			for(int i = 0; i < pointList.size(); i++) {
