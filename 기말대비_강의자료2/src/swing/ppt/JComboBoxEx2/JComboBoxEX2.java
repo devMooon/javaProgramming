@@ -11,6 +11,7 @@ import java.util.Vector;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -90,7 +91,8 @@ public class JComboBoxEX2 {
 					comboBox.setSelectedItem(null);
 				}
 				catch(ArrayIndexOutOfBoundsException e2) {
-					System.err.println("경고/ 다이얼로그");
+					JOptionPane.showMessageDialog(frame, "삭제할 값이 없습니다.", "오류", JOptionPane.ERROR_MESSAGE);
+					
 				}
 				
 			}
@@ -112,7 +114,7 @@ public class JComboBoxEX2 {
 				textField.setText("");
 			}
 			else {
-				System.err.println("값을 추가해주세요!/ 다이얼로그");
+				JOptionPane.showMessageDialog(frame, "값이 입력되지 않았습니다.", "경고", JOptionPane.WARNING_MESSAGE);
 				
 			}
 		}

@@ -9,6 +9,7 @@ import java.util.Vector;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -88,9 +89,16 @@ public class JListEX2 extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				data.add(textField.getText());
-				textField.setText("");
-				list.updateUI();
+				if(textField.getText().trim().length() != 0) {
+					data.add(textField.getText());
+					textField.setText("");
+					list.updateUI();
+				}
+				else {
+					JOptionPane.showMessageDialog(JListEX2.this, "추가할 값을 입력 해주세요.", "오류", JOptionPane.WARNING_MESSAGE);
+						
+				}
+				
 			}
 			
 		});
@@ -99,11 +107,20 @@ public class JListEX2 extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					data.remove(list.getSelectedIndex());
-					list.updateUI();
-				} catch(ArrayIndexOutOfBoundsException e1){
-					System.err.println("경고/ 대화상자");
+				if(!list.isSelectionEmpty()) {
+					try {
+						data.remove(list.getSelectedIndex());
+						list.setSelectedIndex(0);
+						textField.setText("");
+						list.updateUI();
+					} catch(ArrayIndexOutOfBoundsException e1){
+						JOptionPane.showMessageDialog(JListEX2.this, "리스트에 삭제할 값이 없습니다.", "오류", JOptionPane.WARNING_MESSAGE);
+						
+					}
+				}
+				else {
+					JOptionPane.showMessageDialog(JListEX2.this, "리스트에서 삭제할 값을 선택 해주세요.", "오류", JOptionPane.WARNING_MESSAGE);
+					
 				}
 				
 				

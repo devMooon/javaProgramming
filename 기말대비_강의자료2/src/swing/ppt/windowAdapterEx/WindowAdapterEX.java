@@ -9,6 +9,7 @@ import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class WindowAdapterEX {
 	private JFrame frame;
@@ -19,15 +20,10 @@ public class WindowAdapterEX {
 
 			@Override
 			public void windowClosing(WindowEvent e) {
-				System.err.println("창이 닫칩니다./ 대화상자");
+				int ret = JOptionPane.showConfirmDialog(frame, "종료하시겠습니까?", "종료", JOptionPane.YES_NO_OPTION);
+				if(ret == JOptionPane.YES_OPTION) System.exit(0);
+				//else 
 			}
-
-			@Override
-			public void windowClosed(WindowEvent e) {
-				System.err.println("창이 닫칩니다.!!/ 대화상자");
-			}
-			
-			
 		});
 		buildGUI();
 		
@@ -43,8 +39,8 @@ public class WindowAdapterEX {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-				
+				int ret = JOptionPane.showConfirmDialog(frame, "종료하시겠습니까?", "종료", JOptionPane.YES_NO_OPTION);
+				if(ret == JOptionPane.YES_OPTION) System.exit(0);
 			}
 			
 		});
