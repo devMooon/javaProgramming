@@ -65,6 +65,7 @@ public class DrawLineEx extends JFrame {
 
 			@Override
 			public void windowClosing(WindowEvent e) {
+				
 				int result = JOptionPane.showConfirmDialog(DrawLineEx.this, "종료하시겠습니까?", "종료", JOptionPane.YES_NO_OPTION);
 				if(result == JOptionPane.YES_OPTION) System.exit(0);
 			}
